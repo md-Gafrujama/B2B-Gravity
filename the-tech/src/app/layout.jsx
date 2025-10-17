@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ArrowNavigation from '@/components/ArrowNavigation';
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: "Technology Advice",
   description: "Get the latest tech advice and insights",

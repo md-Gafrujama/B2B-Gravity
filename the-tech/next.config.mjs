@@ -6,35 +6,12 @@ const nextConfig = {
   // Output standalone for better deployment
   output: 'standalone',
   
-  // Disable experimental features that may cause build issues
-  experimental: {},
+  // Disable static generation completely
+  trailingSlash: false,
   
   // Image optimization
   images: {
     unoptimized: true
-  },
-  
-  // Webpack optimizations for faster builds
-  webpack: (config, { isServer }) => {
-    // Reduce bundle size
-    config.optimization.splitChunks = {
-      chunks: 'all',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    }
-    
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-      }
-    }
-    return config
   }
 }
 
