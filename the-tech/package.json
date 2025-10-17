@@ -11,9 +11,9 @@
     "prebuild": "next telemetry disable"
   },
   "dependencies": {
-    "next": "^15.3.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.501.0",
     "@heroicons/react": "^2.1.3",

@@ -6,28 +6,28 @@ const nextConfig = {
   // Output standalone for better deployment
   output: 'standalone',
   
-  // Optimize package imports
-  experimental: {
-    optimizePackageImports: [
-      '@heroicons/react',
-      'lucide-react',
-      'react-icons'
-    ],
-  },
-  
-  // Compiler optimizations
-  compiler: {
-    // Remove console.logs in production
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
+  // Disable experimental features that may cause build issues
+  experimental: {},
   
   // Image optimization
   images: {
-    unoptimized: true // Speeds up build if you're not using next/image extensively
+    unoptimized: true
   },
   
   // Webpack optimizations for faster builds
   webpack: (config, { isServer }) => {
+    // Reduce bundle size
+    config.optimization.splitChunks = {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    }
+    
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
