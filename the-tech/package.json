@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "next telemetry disable",
-    
+    "prebuild": "next telemetry disable"
   },
   "dependencies": {
     "next": "^15.3.4",
