@@ -1,4 +1,6 @@
-// src/app/posts/[id]/page.jsx
+import { getCriticalPosts } from '@/app/lib/getCriticalPosts'
+
+// This is the correct App Router syntax for static generation
 export async function generateStaticParams() {
   // Skip static generation for faster builds
   if (process.env.SKIP_BUILD_STATIC_GENERATION) {
@@ -14,5 +16,10 @@ export async function generateStaticParams() {
 }
 
 export default function Post({ params }) {
-  return <div>Post {params.id}</div>
+  return (
+    <div>
+      <h1>Post {params.id}</h1>
+      {/* Your post content here */}
+    </div>
+  )
 }
