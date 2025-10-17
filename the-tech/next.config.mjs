@@ -1,23 +1,31 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable static exports for faster builds
+  output: 'export',
+  trailingSlash: true,
+  
+  // Optimize images
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'img.freepik.com',
-        pathname: '**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '**',
-      },
-      {
-        protocol: 'https',
-        hostname: '**', // Allow all domains (use carefully)
-      },
-    ],
+    unoptimized: true
   },
-};
+  
+  // Skip build-time optimizations during development
+  ...(process.env.NODE_ENV === 'development' && {
+    swcMinify: false,
+    experimental: {
+      esmExternals: false
+    }
+  }),
+  
+  // Build optimization
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  // Reduce bundle size
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
+  }
+}
 
-export default nextConfig;
+module.exports = nextConfig
