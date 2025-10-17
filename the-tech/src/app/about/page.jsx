@@ -38,8 +38,8 @@ const OurValues = dynamic(() => import('@/components/about/OurValues'));
 const Achievements = dynamic(() => import('@/components/about/Achievements'));
 const GetStarted = dynamic(() => import('@/components/about/GetStarted'));
 
-// Force static generation for faster builds
-export const dynamic = 'force-static';
+// Fix: Use a different name for the export to avoid conflict with the import
+export const dynamicParams = false; // This forces static generation
 
 const AboutPage = () => {
   return (
