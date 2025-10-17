@@ -1,5 +1,8 @@
 import { getCriticalPosts } from '@/app/lib/getCriticalPosts'
 
+// Force dynamic rendering to prevent build issues
+export const dynamic = 'force-dynamic'
+
 // This is the correct App Router syntax for static generation
 export async function generateStaticParams() {
   // Skip static generation for faster builds

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "SKIP_BUILD_STATIC_GENERATION=true next build",
+    "build:full": "next build",
     "start": "next start",
     "lint": "next lint",
     "prebuild": "next telemetry disable"
