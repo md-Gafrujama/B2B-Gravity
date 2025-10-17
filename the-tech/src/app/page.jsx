@@ -93,18 +93,18 @@
 
 'use client';
 import React from 'react';
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 
 export const dynamic = 'force-dynamic'
 
 // Lazy load components to reduce initial bundle size
-const HeroSection = dynamic(() => import('@/components/home/HeroSection'), {
+const HeroSection = dynamicImport(() => import('@/components/home/HeroSection'), {
   loading: () => <div className="h-screen bg-gray-100 animate-pulse"></div>
 });
-const AboutSection = dynamic(() => import('@/components/home/AboutSection'));
-const ServicesSection = dynamic(() => import('@/components/home/ServicesSection'));
-const CategoriesSection = dynamic(() => import('@/components/home/CategoriesSection'));
-const ContactSection = dynamic(() => import('@/components/home/ContactSection'));
+const AboutSection = dynamicImport(() => import('@/components/home/AboutSection'));
+const ServicesSection = dynamicImport(() => import('@/components/home/ServicesSection'));
+const CategoriesSection = dynamicImport(() => import('@/components/home/CategoriesSection'));
+const ContactSection = dynamicImport(() => import('@/components/home/ContactSection'));
 
 const B2BGravityHomepage = () => {
   return (
